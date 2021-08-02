@@ -59,22 +59,6 @@ class ProblemSIR:
     def w(self, t):
         '''
         Method to implement the w (omega) function.
-        I am in doubt of how to read the exercise with regards to
-        the implementation of this formula. The way I have understood
-        it to work, it creates a sum of the total force of one full attack.
-        If this implementation is correct, this means that the way I have
-        implemented it in this program (as explained above) is not an accurate
-        depiction of the development in the SIRZ-model in the time points
-        the attack lasts (as the entire force of the attack is calculated
-        and applied at the start of the attack), but the surrounding time
-        points should still be accurate.
-        
-        I would specifically like feedback on whether or not this
-        interpretation is correct, and if so how one is intended to
-        implement the w function. I would assume that it would entail
-        applying only some fraction of the calculated total force at each
-        of the time points, but I am unsure of how to do this and do not
-        have the time to work more on it.
         '''
         if t in [5, 10, 18]:
             o = 0.5 # o is float, so no need to worry about int division
@@ -108,6 +92,7 @@ class ProblemSIR:
         return [dS, dI, dZ, dR]
 
 class SolverSIR:
+    """Solver to solve the ODE problem, defaulting to using RungeKutta4."""
     def __init__(self, problem, dt):
         self.problem, self.dt = problem, dt
         
