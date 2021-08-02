@@ -3,7 +3,7 @@ from numpy import linspace
 from ODESolver import RungeKutta4
 from scitools.std import plot, hold
 
-'''
+'''Formulas:
 S + I + R = N
 S' + I' + R' = 0
 S(t + dt) = S(t) - beta*S*I*dt
